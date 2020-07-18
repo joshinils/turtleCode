@@ -18,8 +18,7 @@ function plantSeed()
     turtle.placeDown()
 end
 
-turtle.forward()
-for i=1,16 do
+function harvest()
     success, data = turtle.inspectDown()
     if success then
     -- test if wheat is grown fully
@@ -30,5 +29,63 @@ for i=1,16 do
     else -- no plant below 
         plantSeed()
     end
+end
+
+function harvestRow()
+    for i=1,15 do
+        harvest()
+        turtle.forward()
+    end
+end
+
+function dropCrops()
+    turtle.select(2)
+    data = turtle.getItemdetail()
+    if data and data.name ~= "minecraft:wheat_seeds" then
+        turtle.dropDown()
+    end
+    for slotNum = 3, 16 do
+        turtle.select(slotNum)
+        data = turtle.getItemDetail(slotNum)
+        if data and data.name == "minecraft:wheat_seeds" then
+            turtle.transferTo(2)
+        end
+        turtle.dropDown()
+    end
+end
+
+function pickupFuel()
+    turtle.select(1)
+    turtle.suckDown(turtle.getSpace(1))
+end
+
+while true do
     turtle.forward()
+
+    harvestRow()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnRight()
+
+    harvestRow()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnLeft()
+
+    harvestRow()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnRight()
+
+    harvestRow()
+    turtle.forward()
+    dropCrops()
+
+    turtle.turnRight()
+    turtle.forward()
+    turtle.forward()
+    turtle.forward()
+    turtle.turnRight()
+
+    pickupFuel()
 end
