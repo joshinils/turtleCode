@@ -40,7 +40,7 @@ end
 
 function dropCrops()
     turtle.select(2)
-    data = turtle.getItemdetail()
+    data = turtle.getItemDetail()
     if data and data.name ~= "minecraft:wheat_seeds" then
         turtle.dropDown()
     end
