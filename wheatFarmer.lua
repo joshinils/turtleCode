@@ -65,6 +65,7 @@ function pickupFuel()
 end
 
 while true do
+    pickupFuel()
     turtle.forward()
 
     harvestRow()
@@ -91,6 +92,4 @@ while true do
     turtle.forward()
     turtle.forward()
     turtle.turnRight()
-
-    pickupFuel()
 end
