@@ -39,6 +39,11 @@ function harvestRow()
 end
 
 function dropCrops()
+    turtle.select(1)
+    data = turtle.getItemDetail()
+    if data and data.name == "minecraft:wheat" then
+        turtle.dropDown()
+    end
     turtle.select(2)
     data = turtle.getItemDetail()
     if data and data.name ~= "minecraft:wheat_seeds" then
