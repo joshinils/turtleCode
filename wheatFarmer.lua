@@ -9,7 +9,7 @@ function plantSeed()
     saplingSlot = 0
     for slotNum = 1, 16 do --find slot with seeds
         data = turtle.getItemDetail(slotNum)
-        if data and data.name = "minecraft:wheat_seeds" then
+        if data and data.name == "minecraft:wheat_seeds" then
             saplingSlot = slotNum
             break
         end
