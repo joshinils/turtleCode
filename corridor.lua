@@ -1,9 +1,9 @@
 os.loadAPI("dig.lua")
 for i=1,100 do
     for j = 1, 100 do
-        dig.digUp()
+        dig.up()
         dig.dig()
-        dig.digDown()
+        dig.down()
         turtle.forward()
     end
     if(i%2 == 0) then
