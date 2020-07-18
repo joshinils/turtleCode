@@ -56,7 +56,7 @@ end
 
 function pickupFuel()
     turtle.select(1)
-    turtle.suckDown(turtle.getSpace(1))
+    turtle.suckDown(turtle.getItemSpace(1))
 end
 
 while true do
