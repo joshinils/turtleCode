@@ -5,4 +5,7 @@ shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshin
 shell.run("rom/programs/delete.lua","startup.lua")
 shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshinils/turtleCode/master/startup.lua")
 
+shell.run("rom/programs/delete.lua","dig.lua")
+shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshinils/turtleCode/master/dig.lua")
+
 print("Your branch is up to date with 'origin/master'.")
