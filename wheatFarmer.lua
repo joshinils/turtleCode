@@ -34,7 +34,7 @@ end
 function harvestRow()
     for i=1,15 do
         harvest()
-        turtle.forward()
+        turtleForward()
     end
 end
 
@@ -64,32 +64,44 @@ function pickupFuel()
     turtle.suckDown(turtle.getItemSpace(1))
 end
 
+function refuel()
+    if turtle.getFuelLevel() < 10 then
+        turtle.select(1)
+        turtle.refuel(1)
+    end
+end
+
+function turtleForward()
+    refuel()
+    turtle.forward()
+end
+
 while true do
     pickupFuel()
-    turtle.forward()
+    turtleForward()
 
     harvestRow()
     turtle.turnRight()
-    turtle.forward()
+    turtleForward()
     turtle.turnRight()
 
     harvestRow()
     turtle.turnLeft()
-    turtle.forward()
+    turtleForward()
     turtle.turnLeft()
 
     harvestRow()
     turtle.turnRight()
-    turtle.forward()
+    turtleForward()
     turtle.turnRight()
 
     harvestRow()
-    turtle.forward()
+    turtleForward()
     dropCrops()
 
     turtle.turnRight()
-    turtle.forward()
-    turtle.forward()
-    turtle.forward()
+    turtleForward()
+    turtleForward()
+    turtleForward()
     turtle.turnRight()
 end
