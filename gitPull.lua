@@ -8,4 +8,7 @@ shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshin
 shell.run("rom/programs/delete.lua","dig.lua")
 shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshinils/turtleCode/master/dig.lua")
 
+shell.run("rom/programs/delete.lua","wheatFarmer.lua")
+shell.run("rom/programs/http/wget.lua","https://raw.githubusercontent.com/joshinils/turtleCode/master/wheatFarmer.lua")
+
 print("Your branch is up to date with 'origin/master'.")
