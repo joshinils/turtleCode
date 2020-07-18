@@ -1,7 +1,7 @@
 os.loadAPI("dig.lua")
 
 success, data = turtle.inspectDown()
-if succes ~= true or data.name ~= "minecraft:chest" then
+if success ~= true or data.name ~= "minecraft:chest" then
     error("invalid starting position! place me on a chest")
 end
 
