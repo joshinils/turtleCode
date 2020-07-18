@@ -73,7 +73,9 @@ end
 
 function turtleForward()
     refuel()
-    turtle.forward()
+    if not turtle.forward() then
+        error("could not move, probably out of fuel!")
+    end
 end
 
 while true do
