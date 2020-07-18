@@ -18,7 +18,7 @@ function plantSeed()
     turtle.placeDown()
 end
 
-turtle.move()
+turtle.forward()
 for i=1,16 do
     success, data = turtle.inspectDown()
     if success then
@@ -30,5 +30,5 @@ for i=1,16 do
     else -- no plant below 
         plantSeed()
     end
-    turtle.move()
+    turtle.forward()
 end
