@@ -8,6 +8,7 @@ if #args == 0 then
     print( "  first  slot is for fuel," )
     print( "  second slot is for enderFuel," )
     print( "  third  slot is for enderJunk" )
+    return
 end
 
 chunkWidthRight = 0 -- includes turtles position, going to its right
@@ -34,4 +35,4 @@ if #args > 2 then
     end
 end
 
-shell.run("trace quarryTBT.lua " .. chunkWidthRight .. " " .. chunkDepthFront .. " " .. chunkWidthRight)
+shell.run("trace quarryTBT.lua " .. chunkWidthRight .. " " .. chunkDepthFront .. " " .. chunkHeightDown)

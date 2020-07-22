@@ -1,4 +1,4 @@
-os.loadAPI("funcs.lua")
+os.loadAPI("dig.lua")
 
 success, data = turtle.inspectDown()
 if success ~= true or data.name ~= "minecraft:chest" then
@@ -14,10 +14,8 @@ function plantSeed()
             break
         end
     end
-    if saplingSlot > 0 then
-        turtle.select(saplingSlot)
-        turtle.placeDown()
-    end
+    turtle.select(saplingSlot)
+    turtle.placeDown()
 end
 
 function harvest()
@@ -36,7 +34,7 @@ end
 function harvestRow()
     for i=1,15 do
         harvest()
-        funcs.turtleForward()
+        turtleForward()
     end
 end
 
@@ -61,35 +59,51 @@ function dropCrops()
     end
 end
 
+function pickupFuel()
+    turtle.select(1)
+    turtle.suckDown(turtle.getItemSpace(1))
+end
+
+function refuel()
+    if turtle.getFuelLevel() < 10 then
+        turtle.select(1)
+        turtle.refuel(1)
+    end
+end
+
+function turtleForward()
+    refuel()
+    if not turtle.forward() then
+        error("could not move, probably out of fuel!")
+    end
+end
+
 while true do
-    funcs.pickupFuel()
-    funcs.turtleForward()
+    pickupFuel()
+    turtleForward()
 
     harvestRow()
     turtle.turnRight()
-    funcs.turtleForward()
-    harvest()
+    turtleForward()
     turtle.turnRight()
 
     harvestRow()
     turtle.turnLeft()
-    funcs.turtleForward()
-    harvest()
+    turtleForward()
     turtle.turnLeft()
 
     harvestRow()
     turtle.turnRight()
-    funcs.turtleForward()
-    harvest()
+    turtleForward()
     turtle.turnRight()
 
     harvestRow()
-    funcs.turtleForward()
+    turtleForward()
     dropCrops()
 
     turtle.turnRight()
-    funcs.turtleForward()
-    funcs.turtleForward()
-    funcs.turtleForward()
+    turtleForward()
+    turtleForward()
+    turtleForward()
     turtle.turnRight()
 end

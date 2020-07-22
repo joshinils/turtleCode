@@ -15,6 +15,32 @@ end
 function turtleForward()
     refuel()
     if not turtle.forward() then
-        error("could not move, probably out of fuel!")
+        if turtle.getFuelLevel() == 0 then
+            error("could not move forward, probably out of fuel!")
+        end
+        return false
     end
+    return true
+end
+
+function turtleUp()
+    refuel()
+    if not turtle.up() then
+        if turtle.getFuelLevel() == 0 then
+            error("could not move up, probably out of fuel!")
+        end
+        return false
+    end
+    return true
+end
+
+function turtleDown()
+    refuel()
+    if not turtle.down() then
+        if turtle.getFuelLevel() == 0 then
+            error("could not move down, probably out of fuel!")
+        end
+        return false
+    end
+    return true
 end
